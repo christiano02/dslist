@@ -11,29 +11,34 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "game_year")
     private Integer year;
     private Double score;
-    private String tittle;
+    private String title;
     private String genre;
-    private String plataform;
+    private String platforms;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){
     }
 
-    public Game(Long id, String tittle, String genre, String imgUrl, String longDescription, String plataform,
+    public Game(Long id, String title, String genre, String imgUrl, String longDescription, String platforms,
                 Double score, String shortDescription, Integer year) {
         this.genre = genre;
         this.id = id;
         this.imgUrl = imgUrl;
         this.longDescription = longDescription;
         this.score = score;
-        this.plataform = plataform;
+        this.platforms = platforms;
         this.shortDescription = shortDescription;
-        this.tittle = tittle;
+        this.title = title;
         this.year = year;
     }
 
@@ -69,12 +74,12 @@ public class Game {
         this.longDescription = longDescription;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlataforms(String plataform) {
-        this.plataform = plataform;
+    public void setPlatforms(String plataform) {
+        this.platforms = plataform;
     }
 
     public Double getScore() {
@@ -93,12 +98,12 @@ public class Game {
         this.shortDescription = shortDescription;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getYear() {
