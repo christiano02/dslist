@@ -53,10 +53,26 @@ POST /lists/{listsId}/replacement -> Move jogo da tabela para um index diferente
 # Exemplo de Request (POST /games):
 
 json
+```bash 
 {
   "title": "The Witcher 3",
   "platform": "PC",
   "genre": "RPG"
 }
+```
+# Diagrama de Entidades 
 
-![Diagrama de Entidades](https://imgur.com/a/Gmgvo62)
+![Diagrama de Entidades](diagrama.png)
+
+# Entidades:
+
+GAME: Armazena informações completas sobre jogos
+
+GAME_LIST: Representa listas/coleções de jogos
+
+BELONGING: Tabela de associação (relacionamento N-N entre GAME e GAME_LIST)
+
+# Relacionamentos
+Game e GameList possuem uma relação muitos-para-muitos, mediada pela entidade Belonging. Isso permite que um jogo pertença a várias listas e que uma lista contenha vários jogos.
+
+A entidade Belonging também armazena a posição do jogo na lista, permitindo ordenar os jogos dentro de cada lista.
